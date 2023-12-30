@@ -4,7 +4,7 @@ import logging
 import requests
 
 from config.config import CLOUDFLARE_ZONES, LOGGING_LEVEL, LAST_IP_FILE, CURRENT_IP_API, CLOUDFLARE_RECORDS, \
-    LOG_FILE_PATH
+    LOG_FILE
 
 logger = logging.getLogger(__name__)
 
@@ -106,7 +106,7 @@ def set_up_logging() -> None:
     global logger
 
     formatter = logging.Formatter(fmt="%(asctime)s %(levelname)-8s %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
-    handler = logging.FileHandler(LOG_FILE_PATH, mode="a")
+    handler = logging.FileHandler(LOG_FILE, mode="a")
     handler.setFormatter(formatter)
     logger.setLevel(LOGGING_LEVEL)
     logger.addHandler(handler)
