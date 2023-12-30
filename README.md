@@ -59,12 +59,15 @@ python cloudflare-dynamic-ip.py
 
 If you want to run the script programatically, you can use Cron jobs:
 
-```console
-# crontab -e
+```shell
+crontab -e
 ```
 
 And add, for example:
 
-```shell
-0,14,29,44 * * * * /path/to/python /path/to/cloudflare-dynamic-ip.py
 ```
+@reboot /path/to/.venv/bin/python /path/to/cloudflare-dynamic-ip.py
+0 0,12 * * * /path/to/.venv/bin/python /path/to/cloudflare-dynamic-ip.py
+```
+
+This Cron configuration will run the script at reboot and every day at 00:00 and 12:00.
