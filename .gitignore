@@ -158,3 +158,4 @@ cython_debug/
 # Script-specifics
 config/config.py
 cloudflare-dynamic-ip-last.txt
+cloudflare-dynamic-ip.log*

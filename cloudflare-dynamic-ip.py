@@ -1,5 +1,6 @@
 import json
 import logging
+from logging.handlers import RotatingFileHandler
 
 import requests
 
@@ -106,7 +107,8 @@ def set_up_logging() -> None:
     global logger
 
     formatter = logging.Formatter(fmt="%(asctime)s %(levelname)-8s %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
-    handler = logging.FileHandler(LOG_FILE, mode="a")
+
+    handler = RotatingFileHandler(filename=LOG_FILE, mode="a", maxBytes=209 * 90, backupCount=2)
     handler.setFormatter(formatter)
     logger.setLevel(LOGGING_LEVEL)
     logger.addHandler(handler)
