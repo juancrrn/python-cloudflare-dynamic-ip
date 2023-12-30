@@ -105,7 +105,7 @@ def set_up_logging() -> None:
     global logger
 
     formatter = logging.Formatter(fmt="%(asctime)s %(levelname)-8s %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
-    handler = logging.FileHandler("cloudflare-dynamic-ip-last.log", mode="w")
+    handler = logging.FileHandler("cloudflare-dynamic-ip.log", mode="a")
     handler.setFormatter(formatter)
     logger.setLevel(LOGGING_LEVEL)
     logger.addHandler(handler)
