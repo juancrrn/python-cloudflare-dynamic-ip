@@ -17,7 +17,8 @@ CLOUDFLARE_RECORDS = [
     }
 ]
 
-LAST_IP_FILE = "cloudflare-dynamic-ip-last.txt"
+LAST_IP_FILE = "./cloudflare-dynamic-ip-last.txt"
+LOG_FILE = "./cloudflare-dynamic-ip.log"
 
 LOGGING_LEVEL = logging.INFO
 
