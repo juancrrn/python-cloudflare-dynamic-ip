@@ -1,5 +1,5 @@
 # Python script to manage dynamic IP addresses in Cloudflare DNS
-
+(this fork runs in the background and pings for ip changes based on interval defined in config file)
 Can be scheduled to run periodically using Cron jobs.
 
 ## Introduction
@@ -71,3 +71,23 @@ And add, for example:
 ```
 
 This Cron configuration will run the script at reboot and every day at 00:00 and 12:00.
+
+## New Features
+
+### IP Retrieval Functions
+
+This repository now includes functions to retrieve the current IP address from Cloudflare DNS records:
+
+- `get_ip_from_cloudflare_record()` - Get IP directly with zone ID, record name, and API token
+- `get_ip_from_existing_record()` - Get IP using existing configuration format
+
+For detailed documentation and examples, see [GET_IP_FUNCTIONS.md](docs/GET_IP_FUNCTIONS.md).
+
+**Quick Example:**
+```python
+from cloudflare_dynamic_ip import get_ip_from_cloudflare_record
+
+ip = get_ip_from_cloudflare_record("zone_id", "example.com", "api_token")
+if ip:
+    print(f"Current DNS record IP: {ip}")
+```
